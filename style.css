@@ -1,0 +1,765 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #0d0820;
+  font-family: 'Geist Mono', monospace;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.p1 {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 0;
+  height: 4120px;       
+  overflow: hidden;
+  text-align: center;
+  font-size: 48px;
+  transition: none;      
+}
+
+.p1.expanded {
+  height: 8000px;         
+}
+.lower-section {
+  display: block;
+}
+/* ======= Background ======= */
+.city-sky-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1079px;
+  background: linear-gradient(180deg, #221349 43.75%, #657fb7);
+  z-index: -3;
+}
+
+.bg2 {
+  position: absolute;
+  top: 610px;
+  left: 0;
+  width: 100%;
+  height: 2300px;
+  background-color: #01002d;
+  z-index: -3;
+}
+
+.river-bg {
+  position: absolute;
+  top: 2900px;
+  left: 0;
+  width: 100%;
+  height: 1100px;
+  background-color: #010005;
+  z-index: -3;
+}
+
+.street-bg {
+  position: absolute;
+  top: 4120px;
+  left: 0;
+  width: 100%;
+  height: 910px;
+  background: linear-gradient(180deg, #595687 50.38%, #180a60 50.46%);
+  z-index: 0;
+}
+
+.night-2-bg {
+  position: absolute;
+  top: 7200px;
+  left: 0;
+  width: 100%;
+  height: 750px;
+  background-color: #550a7b;
+  z-index: -3;
+}
+
+.star-bg {
+  position: absolute;
+  top: 600px;
+  left: 0;
+  width: 100%;
+  height: 2000px;
+  background: linear-gradient(to bottom, rgba(85,10,123,0) 0%, #550a7b 10%);
+  z-index: 3;          
+}
+/* ======= BG Images ======= */
+.London-2{
+  position: absolute;
+  bottom: -750px;
+  left: 48%;
+  transform: translateX(-50%);
+  width: 4000px;
+  height: 990px;
+  background: url('image/London_2.png') no-repeat center;
+  background-size: contain;
+  z-index: 3;
+  opacity: 100%;
+}
+
+.london-bg {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3020px;
+  height: 1020px;
+  background: url('image/London.png') no-repeat center;
+  background-size: contain;
+  z-index: -1;
+}
+
+.raining-bg {
+  position: absolute;
+  top: 1000px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1650px;
+  height: 1200px;
+  background: url('image/Raining.gif') no-repeat center;
+  opacity: 25%;
+  z-index: -2;
+}
+
+.bridge-bg {
+  position: absolute;
+  top: 3600px;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  background: url('image/bridge.png') no-repeat center;
+  background-size: contain;
+  z-index: -1;
+}
+.umbrella-bg {
+  position: absolute;
+  top: 4850px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1600px;
+  height: 2500px;
+  background: url('image/umbrella bg.gif') no-repeat center;
+  z-index: -2;
+}
+
+/*==== Elements ====*/
+
+.moon-1 { 
+  position: absolute;
+  width: 260px;
+  top: 40px;
+  right: 190px;
+
+  transform-origin: 50% 50%;
+  cursor: pointer;
+
+  animation: rock 3s linear infinite;
+}
+
+@keyframes rock {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(10deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.moon-2, .moon-2-light {
+  position: absolute;
+  width: 210px;
+  top: 7100px;
+  right: 170px;
+  z-index: 5;
+  cursor: pointer;
+  transition: all 1s ease; 
+}
+
+.moon-2.active, .moon-2-light.active {
+  width: 390px;
+  top: 7100px;
+  right: 520px;
+}
+
+.moon-2-light {
+  opacity: 0.5;
+  animation: moonPulse 3s ease-in-out infinite;
+  transition: all 1s ease, opacity 0.5s ease; 
+}
+
+.moon-2-light.active {
+  opacity: 1;
+  transform: scale(1);  
+  animation: none;
+}
+
+.moon-2, .moon-2-light {
+  position: absolute;
+  width: 210px;
+  top: 7100px;
+  right: 170px;
+  z-index: 5;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.moon-2.active, .moon-2-light.active {
+  width: 400px;
+  top: 7000px;
+  right: 550px;
+}
+
+@keyframes moonPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+.pop-up {
+  opacity: 0;
+  pointer-events: none;  
+  transition: opacity 0.8s ease;
+  position: absolute;
+  top: 6200px;
+  left: 0;
+  width: 100%;
+  height: 1200px; 
+  z-index: 4; 
+}
+
+.pop-up.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.light-hb {
+  position: absolute;
+  top: 1150px;
+  left: 45px;
+  width: 700px;
+  height: 700px; 
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.light-hb:hover ~ .light {
+  opacity: 1;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.light:not(:hover) {
+  animation: none;
+  transform: scale(1); 
+}
+
+.light-hb:hover ~ .it-shines-text {
+  opacity: 1;
+}
+
+.light {
+  position: absolute;
+  top: 1150px;
+  left: 45px;
+  width: 700px;
+  opacity: 0.3; 
+  transform-origin: center center;
+  transition: opacity 0.8s ease, transform 0.5s ease;
+  transform: scale(1);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.lanter-river {
+  position: absolute;
+  top: 1040px;   
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;   
+  pointer-events: none; 
+}
+.shadow,
+.city-light,
+.bg2,
+.river-bg {
+  pointer-events: none;
+
+}
+
+.flashlight-hitbox {
+  position: absolute;
+  top: 2240px;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  z-index: 1;
+  cursor: pointer;
+}
+.flashlight-hitbox:hover ~ .shadow {
+  -webkit-mask: radial-gradient(
+    circle 180px at center,
+    rgba(0,0,0,0) 60%,
+    rgba(0,0,0,0.6) 85%,
+    rgba(0,0,0,1) 100%
+  );
+  mask: radial-gradient(
+    circle 180px at center,
+    rgba(0,0,0,0) 60%,
+    rgba(0,0,0,0.6) 85%,
+    rgba(0,0,0,1) 100%
+  );
+}
+
+.shadow {
+  position: absolute;
+  top: 2240px;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  background-color: #01002d; 
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask: none;
+  mask: none;
+
+  transition: -webkit-mask 0.3s ease, mask 0.3s ease;
+}
+
+.shadow.active {
+  -webkit-mask: radial-gradient(
+    circle 180px at var(--x, 50%) var(--y, 50%),
+    rgba(0,0,0,0) 60%,   
+    rgba(0,0,0,0.6) 85%,   
+    rgba(0,0,0,1) 100%   
+  );
+  mask: radial-gradient(
+    circle 180px at var(--x, 50%) var(--y, 50%),
+    rgba(0,0,0,0) 60%,
+    rgba(0,0,0,0.6) 85%,
+    rgba(0,0,0,1) 100%
+  );
+}
+
+.city-light {
+  position: absolute;
+  top: 2230px;
+  left: -45px;
+  width: 1600px;
+  z-index: -2;
+}
+
+
+.cab-ride, .cab-idle {
+  position: absolute;
+  top: 3400px;
+  left: 200px;
+  width: 1200px;
+}
+
+.cab-idle {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cab-idle:hover {
+  transform: scale(1.05);
+}
+
+
+.cab-ride {
+  display: none;
+}
+
+@keyframes cabLoop {
+  from { left: -1200px; }
+  to { left: 100%; }
+}
+
+
+.crowd-1 {
+  position: absolute;
+  top: 4150px;               
+  height: 580px;              
+  width: 300%;                
+  background-image: url('image/crowd_1.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  animation: moveRight 35s linear infinite, bob 1s ease-in-out infinite;
+  z-index: 1;
+}
+
+.crowd-2 {
+  position: absolute;
+  top: 4100px;                
+  height: 750px;              
+  width: 300%;                
+  background-image: url('image/crowd_2.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  animation: moveLeft 40s linear infinite, bob 2s ease-in-out infinite;
+   z-index:1;
+}
+
+@keyframes moveRight {
+  from { background-position-x: 0; }
+  to { background-position-x: 100%; }
+}
+
+@keyframes moveLeft {
+  from { background-position-x: 0; }
+  to { background-position-x: -100%; }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); } 
+}
+.build-1 {
+  position: absolute;
+  top: 7000px;
+  left: -40px;
+  width: 400px;
+}
+
+.build-2 {
+  position: absolute;
+  top: 7300px;
+  right: -50px;
+  width: 350px;
+}
+
+.umbrella, .umbrella1, .umbrella2 {
+  position: absolute;
+  width: 900px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.umbrella, .umbrella1, .umbrella2 {
+  position: absolute;
+  width: 900px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.umbrella { top: 5000px; right: 0; }
+.umbrella1 { top: 5500px; left: 0; }
+.umbrella2 { top: 6000px; right: 0; }
+.umbrella.animate-out, .umbrella2.animate-out {
+  animation: umbrellaRightOut 0.8s ease forwards;
+}
+
+.umbrella1.animate-out {
+  animation: umbrellaLeftOut 0.8s ease forwards;
+}
+
+.umbrella.animate-back, .umbrella2.animate-back {
+  animation: umbrellaRightBack 0.8s ease forwards;
+}
+
+.umbrella1.animate-back {
+  animation: umbrellaLeftBack 0.8s ease forwards;
+}
+
+@keyframes umbrellaRightOut {
+  0% { transform: translateX(0) rotate(0deg); }
+  100% { transform: translateX(600px) rotate(90deg); }
+}
+@keyframes umbrellaLeftOut {
+  0% { transform: translateX(0) rotate(0deg); }
+  100% { transform: translateX(-600px) rotate(-90deg); }
+}
+
+@keyframes umbrellaRightBack {
+  0% { transform: translateX(600px) rotate(90deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+@keyframes umbrellaLeftBack {
+  0% { transform: translateX(-600px) rotate(-90deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+.fade {
+  position: absolute;
+  top: 7800px;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(to bottom, rgba(85,10,123,0) 0%, #550a7b 40%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* ======= Text ======= Text ======= Text ======= Text ======= Text ======= Text ======= Text ======= Text ======= Text =======  */
+
+/* Title */
+.a-lodon, .throughfare-2am {
+  position: absolute;
+  font-size: 170px;
+  font-family: 'Jaini Purva';
+  background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.a-lodon { top: 90px; left: 190px; }
+.throughfare-2am { top: 230px; left: 290px; text-align: center; }
+
+/* ==== Poem =====Poem =====Poem =====Poem =====Poem =====Poem =====Poem =====Poem =====Poem =====Poem ===== */
+.they-have-watered {
+  position: absolute; 
+  top: 980px;
+  left: 350px;
+  font-size: 50px;
+  color: #9b9fc4;
+}
+
+.it-shines-text {
+  position: absolute;
+  top: 1390px;
+  right: 290px;
+  transform: translateX(20%);
+  font-size: 50px;
+  text-align: right;
+  line-height: 0.5;
+  width: 80%;
+  opacity: 5%;
+  transition: opacity 0.3s ease;
+}
+.like-a-slow {
+  position: absolute;
+  top: 2150px;
+  left: 200px;
+  width: 600px;
+  font-size: 40px;
+  color: #9b9fc4;
+  z-index: 1;
+  padding: 20px 40px;
+  border-radius: 50%; 
+}
+
+.moving-river{
+  position: absolute;
+  top: 2150px;
+  right: -10px;
+  width: 600px;
+  font-size: 40px;
+  color: #9b9fc4;
+  z-index: 1;
+  padding: 20px 40px;
+  border-radius: 50%; 
+}
+
+.barred-with{
+ position: absolute;
+  top: 2900px;
+  left:500px;
+  width: 500px;
+  text-align: center;
+  font-size: 40px;
+}
+
+.cabs-go {
+  position: absolute;
+  top: 3000px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 40px;
+  line-height: 1.6;
+  width: 80%;
+}
+.between-them {
+  position: absolute; 
+  top: 4700px;
+  left: 300px;
+  font-size: 40px;
+  z-index: 2;
+}
+
+.tramps-doze-on {
+  position: absolute;
+  top: 5350px;
+  right: 200px;
+  width: 500px;
+  text-align: center;
+  font-size: 35px;
+  line-height: 1.8;
+  color: #fff;
+  font-family: 'Geist Mono', monospace;
+  white-space: pre-wrap; 
+  margin: 0;
+  
+}
+.the-city-is{
+  position: absolute;
+  top: 5850px;
+  left: 230px;
+  width: 500px;
+  text-align: center;
+  font-size: 35px;
+  line-height: 1.8;
+  color: #fff;
+  font-family: 'Geist Mono', monospace;
+  white-space: pre-wrap; 
+  margin: 0;
+
+}
+.slow-moving {
+    position: absolute;
+  top: 6350px;
+  right: 200px;
+  width: 500px;
+  text-align: center;
+  font-size: 35px;
+  line-height: 1.8;
+  color: #fff;
+  font-family: 'Geist Mono', monospace;
+  white-space: pre-wrap; 
+  margin: 0;
+}
+
+.opposite-my-window {
+  position: absolute;
+  top: 7190px;
+  left: -5px;
+  font-size: 38px;
+  color: #ffffff;
+  transform:
+  rotate(25deg)
+  perspective(800px) 
+  rotateX(10deg) 
+  rotateY(30deg)
+  skewX(20deg)
+  scaleY(4);
+}
+
+.the-moon-cuts {
+  position: absolute;
+  top: 7275px; right: -2px; 
+  font-size: 45px;
+  transform: 
+  perspective(800px)
+  rotateX(12deg) 
+  rotateY(-52deg) 
+  skewX(0deg)
+  scaleY(2);
+}
+
+.clear-and-round {
+position: absolute;
+  top: 7340px; right: -40px; 
+  font-size: 44px;
+  transform: 
+  perspective(800px) 
+  rotateX(12deg) 
+  rotateY(-50deg)
+  skewX(0deg)
+  scaleY(2);
+}
+
+.through-the-plum-coloured {
+  position: absolute;
+  top: 7400px;
+  left: 800px;
+  transform: translateX(-50%);
+  width: 900px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 1.8;
+  color: #fff;
+  margin: 0;
+}
+.moon-text {
+  position: absolute;
+  top: 7700px;
+  left: 750px;
+  display: flex;
+  align-items: center;
+  width: 718px;
+  color: #ffb751;
+  font-size: 35px;
+}
+
+.She-is-thin {
+  position: absolute; 
+  width: 190px;
+  top: 950px;
+  left: 350px;
+  color: #ffb751;
+  font-size: 35px;
+  z-index: 5;
+}
+
+.and-lustreless {
+  position: absolute; 
+  width: 100px;
+  top: 950px;
+  right: 400px;
+  color: #ffb751;
+  font-size: 35px;
+  z-index: 5;
+}
+
+.but-I-love-her {
+  position: absolute;
+  top: 1200px;
+  left: 790px;
+  transform: translateX(-50%);
+  width: 900px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 1.8;
+  color: #fff;
+  z-index: 5;
+}
+
+.alien-city {
+  position: absolute;
+  bottom: -250px;
+  left: 790px;
+  transform: translateX(-50%);
+  width: 900px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 1.8;
+  color: #fff;
+  z-index: 10;
+}
+.credit1 {
+  position: absolute;
+  top: 7970px;
+  left: -350px;
+  width: 900px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #fff;
+  z-index: 10;
+  opacity: 25%;
+}
+.credit2 {
+  position: absolute;
+  top: 7970px;
+  left: -150px;
+  width: 900px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #fff;
+  z-index: 10;
+  opacity: 25%;
+}
